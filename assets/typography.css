@@ -65,7 +65,8 @@ blockquote.twitter-tweet {
   cursor: pointer;
   color: white;
 }
-#Main-tab.custom-tab, #Sub-tab.custom-tab {
+#Main-tab.custom-tab, #Sub-tab.custom-tab, #Rest-tab.custom-tab {
+  
   background-color: #161a28 ;
   letter-spacing: 1px;
   color: inherit;
@@ -79,7 +80,7 @@ blockquote.twitter-tweet {
   height: 18px;
 }
 
-#Main-tab.custom-tab--selected, #Sub-tab.custom-tab--selected {
+#Main-tab.custom-tab--selected, #Sub-tab.custom-tab--selected, #Rest-tab.custom-tab--selected {
   border-bottom: #91dfd2 solid 4px !important;
   color: white;
 }
@@ -132,7 +133,6 @@ blockquote.twitter-tweet {
 .gauge-wrapper, .scatter-wrapper{
   float: left;
   margin-left: 10px;
-  margin-top: 10px;
   display: 'inline-block';
   padding: 20px; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -148,9 +148,22 @@ blockquote.twitter-tweet {
   background-color: #082255;
   padding: 15px;
   border-radius: 0.55rem;
-  margin-top: 10px;
-  display: 'inline-block'
+  display: 'inline-block';
+  color: white;
+  
 }
-.first-div{
+.first-div, .second-div{
   margin-top: 20px;
+}
+.plotline-wrapper{
+  float: left;
+  margin-left: 10px;
+  display: 'inline-block';
+  padding: 20px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  border-radius: 0.55rem;
+}
+.bottom-wrapper{
+  margin-top: 10px;
 }
