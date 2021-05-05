@@ -1,0 +1,156 @@
+body{
+    z-index: 1;
+    background-color: #061E44; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    
+}
+/*
+blockquote.twitter-tweet {
+    display: inline-block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 5px 5px;
+    padding: 0 16px 16px 16px;
+    max-width: 468px;
+    text-indent: 23px;
+
+  }
+  
+  blockquote.twitter-tweet p {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+  }
+  
+  blockquote.twitter-tweet a {
+    
+    color: blue;
+    font-weight: normal;
+    text-decoration: none;
+    outline: 0 none;
+  }
+
+  blockquote.twitter-tweet img {
+
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
+  }
+  blockquote.twitter-tweet a:hover,
+  blockquote.twitter-tweet a:focus {
+    text-decoration: underline;
+  }
+ .funnyWidget{
+    height: 600px;
+    width: 600px;
+    align-content: left;
+ } 
+*/
+ .custom-tabs {
+  background-color: #161a28 !important; 
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  height: fit-content;
+  cursor: pointer;
+  color: white;
+}
+#Main-tab.custom-tab, #Sub-tab.custom-tab {
+  background-color: #161a28 ;
+  letter-spacing: 1px;
+  color: inherit;
+  border: 0;
+  border-bottom: #1E2130 solid 4px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 18px;
+}
+
+#Main-tab.custom-tab--selected, #Sub-tab.custom-tab--selected {
+  border-bottom: #91dfd2 solid 4px !important;
+  color: white;
+}
+
+.tabs {
+  background-color: #161a28;
+  width: 100%;
+}
+
+.app-header{
+  display: flex;
+  justify-content: space-between;
+
+  color: white;
+}
+.app-header-main{
+  margin-left: 5%;
+}
+.logo{
+  height: 80px;
+  width: 120px;
+  margin-right: 10%;
+
+}
+.tabble-wrapper{
+  padding: 20px;
+  /*padding-bottom: 40px; */
+  background-color: #082255;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.55rem;
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.last-page, .first-page, .previous-page, .next-page{
+  font-size: 20px;
+  color: white;
+  background-color: black;
+}
+.current-page{
+  font-size: 20px !important; 
+  color: black;
+  background-color: white;
+  font-weight: bold;
+}
+.page-number{
+  font-size: 25px;
+  font-weight: bold;
+}
+.gauge-wrapper, .scatter-wrapper{
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: 'inline-block';
+  padding: 20px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  border-radius: 0.55rem;
+}
+.dropdowns-wrapper{
+  float: left;
+  width: 15%;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  padding: 15px;
+  border-radius: 0.55rem;
+  margin-top: 10px;
+  display: 'inline-block'
+}
+.first-div{
+  margin-top: 20px;
+}
