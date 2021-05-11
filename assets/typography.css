@@ -4,6 +4,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    color: #e5e9f0;
+    font-family: 'Lucida Console'
     
 }
 /*
@@ -56,22 +58,26 @@ blockquote.twitter-tweet {
     align-content: left;
  } 
 */
- .custom-tabs {
-  background-color: #161a28 !important; 
+.custom-tabs {
+  background-color: #082255 !important; 
   text-transform: uppercase;
   font-weight: 600;
   font-size: 14px;
   height: fit-content;
   cursor: pointer;
-  color: white;
+  color: #e5e9f0;
+
+}
+.custom-tabs:hover {
+  background-color:#13326c !important; 
+ 
 }
 #Main-tab.custom-tab, #Sub-tab.custom-tab, #Rest-tab.custom-tab {
   
   background-color: #161a28 ;
-  letter-spacing: 1px;
-  color: inherit;
-  border: 0;
-  border-bottom: #1E2130 solid 4px !important;
+  letter-spacing: 2px;
+/*   border: 0; */
+/*   border-bottom: #13326c solid 4px !important; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,8 +87,9 @@ blockquote.twitter-tweet {
 }
 
 #Main-tab.custom-tab--selected, #Sub-tab.custom-tab--selected, #Rest-tab.custom-tab--selected {
-  border-bottom: #91dfd2 solid 4px !important;
-  color: white;
+/*   border-bottom: #13326c solid 4px !important; */
+  background-color:#13326c !important; 
+  color: #e5e9f0;
 }
 
 .tabs {
@@ -94,7 +101,7 @@ blockquote.twitter-tweet {
   display: flex;
   justify-content: space-between;
 
-  color: white;
+  color: #e5e9f0;
 }
 .app-header-main{
   margin-left: 5%;
@@ -116,18 +123,18 @@ blockquote.twitter-tweet {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .last-page, .first-page, .previous-page, .next-page{
-  font-size: 20px;
-  color: white;
-  background-color: black;
+  font-size: 18px;
+  color: #e5e9f0;
+  background-color:  #13326c;
 }
 .current-page{
-  font-size: 20px !important; 
-  color: black;
-  background-color: white;
+  font-size: 18px !important; 
+  color: #e5e9f0;
+  background-color: #13326c;
   font-weight: bold;
 }
 .page-number{
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
 }
 .gauge-wrapper, .scatter-wrapper{
@@ -145,7 +152,7 @@ blockquote.twitter-tweet {
   font-size: 18px;
   font-weight: bold;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background-color: #082255;
+  background-color:  #13326c;
   padding: 15px;
   border-radius: 0.55rem;
   display: 'inline-block';
