@@ -305,7 +305,7 @@ def gen_coin_plots(coin):
                                           ),
                                 opacity=0.01,
                                 name='MV-Volume',
-                                line_shape='spline'
+                                line_shape='spline',
                                 ))
     fig_volume.update_yaxes(range=[0, 200000000000])
     fig_volume.add_trace(fig2.data[0])

@@ -17,8 +17,8 @@ for coin in COINS:
 def build_header():
     return html.Div([
         html.Div([
-            html.H4("Our Title", className='app-header-title'),
-            html.P("Some descriptons, maybe our names or somethings like this", 'app-header-subtitle'),
+            html.H4("Stock App", className='app-header-title'),
+            html.P("Top coins information", 'app-header-subtitle'),
         ], className='app-header-main'),
         html.Img(
             src='assets/crunchips.png',
@@ -222,6 +222,7 @@ def build_tab_3():
 
 
 app = dash.Dash(__name__)
+app.title = 'Stock app'
 server = app.server
 
 app.layout = html.Div([
