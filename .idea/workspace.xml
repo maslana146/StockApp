@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b7c6e2a-d54d-446c-b115-8c27293bd29e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/StockApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StockApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockApp.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/StockApp.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/typography.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/typography.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1621446204661</updated>
       <workItem from="1621446242799" duration="5414000" />
-      <workItem from="1621451721794" duration="917000" />
+      <workItem from="1621451721794" duration="1569000" />
     </task>
     <servers />
   </component>
