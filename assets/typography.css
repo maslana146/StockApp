@@ -12,6 +12,10 @@ body{
   font-family: "Farro";
   src: url("fonts/Farro-Light.ttf");
 }
+
+.modebar {
+display: none !important;
+}
 /*
 blockquote.twitter-tweet {
     display: inline-block;
