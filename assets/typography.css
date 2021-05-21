@@ -4,6 +4,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    height: 100%;
     color: #e5e9f0;
     font-family: 'Lucida Console'
     
@@ -116,10 +117,11 @@ blockquote.twitter-tweet {
 }
 .logo{
   height: 80px;
-  width: 120px;
+  width: 200px;
   margin-right: 10%;
 
 }
+/*1st tab    */
 .tabble-wrapper{
   padding: 20px;
   /*padding-bottom: 40px; */
@@ -144,6 +146,10 @@ blockquote.twitter-tweet {
 .page-number{
   font-size: 18px;
   font-weight: bold;
+  color: #e5e9f0 !important;
+}
+.current-page::placeholder{
+  color: #e5e9f0 !important;
 }
 .scatter-wrapper{
   float: left;
@@ -161,31 +167,39 @@ blockquote.twitter-tweet {
   background-color:  #082255;
   padding: 15px;
   border-radius: 0.55rem;
+  border: 2px solid #082255;
   color: white;
+  height: 40%;
 }
+#selected_coins.Select-value.dropdown-top{
+  color: #e5e9f0
+}
+.Select-menu-outer{
+  background-color: #13326c;
+  color: #e5e9f0
+}
+
 .first-div{
   margin-top: 20px;
-  
+  height: 100%;
 }
+
 .bottom-wrapper{
   margin-top: 10px;
+  height: 50vh;
 }
 .top-wrapper{
   margin-top: 10px;
 }
-
-.empty-div{
-  clear: both;
-  width: 15%;
-  display: flex;
-  padding: 15px;
+.leftcolumn-wrapper{
   float: left;
+  width: 20%;
+  /* height: auto !important; */
 }
-.empty-div::after{
-  content: '.';
-  visibility: hidden;
+.rightcolumn-wrapper{
+  width: 100%;
+  height: 100%;
 }
-
 .gauge-wrapper{
   margin-top: 10px;
   display: 'inline-block';
@@ -193,21 +207,46 @@ blockquote.twitter-tweet {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
-}
-.leftcolumn-wrapper{
-  float: left;
-  width: 20%;
+  height: calc(50vh - 220px)  !important;
 }
 .dominance-wrapper{
   float: left;
   margin-left: 10px;
   display: 'inline-block';
-  padding: 10px; 
+  padding: 10px;  
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
-  width: 45%;
+  width: 48% !important;
+  height: 100% !important;
 }
+
+.scatter-wrapper{
+  float: left;
+  margin-left: 10px;
+  display:inline !important;
+  padding: 5px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  border-radius: 0.55rem;
+  width: 30% !important;
+  height: 100% !important;
+}
+#pie-chart.dash-graph.dominancePie{
+  width: auto !important;
+  height: calc(50vh - 220px)  !important;
+}
+#scatter-chart.dash-graph.marketScatter{
+  width: auto !important;
+  height: auto !important;
+}
+#dominance-line.dash-graph.dominanceGraph{
+  width: auto !important;
+  height: auto !important;
+}
+
+
+/* 2nd div*/
 .second-div{
   margin-top: 20px;
 }
@@ -296,34 +335,48 @@ grid-area: 4/1/10/6;
   border-radius: 0.55rem;
 }
 
+.volumeplot-wrapper{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  border-radius: 0.55rem;
+  margin-left: 10px;
+  display: inline-block !important;
+  padding: 20px; 
+}
 
 /* 3 tab*/
 .third-div{
   margin-top: 20px;
 }
 .card-container{
-  width: calc(332px + 332px + 5px + 20px);
+  /* width: calc(332px + 332px + 5px + 20px); */
+  
   padding: 10px; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
-  display:grid;
+  display:inline-block;
+  /*
   grid-template-columns: 332px 332px;
   grid-template-rows: 380px 380px;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
+  */
+
 }  
 .card-box{
+  margin-right: 5px;
+  margin-left: 5px;
     border-radius:10px;
     color:#fff;
-    display:flex;
+    float: left;
     font-family:sans-serif;
 }
 .trich_card .bottom16 {
   margin-bottom: 16px;
 }
 .trich_card .card {
-  height: 380px;
+  height: 480px;
 }
 .font-sm{
   font-family: "Farro";

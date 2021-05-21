@@ -117,7 +117,7 @@ def gen_social_dominance_plot(types, selected_coins):
                      )
 
     fig_pie.update_layout(plot_bgcolor='#082255', paper_bgcolor='#082255', font_color='#FFFFFF',
-                          width=300, height=250, margin_b=0, margin_t=20)
+                          margin=dict(t=0,b=0,l=0,r=0))
 
     fig_scatter = px.scatter(df,
                              x=df['Price'],
@@ -139,8 +139,7 @@ def gen_social_dominance_plot(types, selected_coins):
                               font_color='#FFFFFF',
                               xaxis=dict(showgrid=False),
                               yaxis=dict(gridcolor="#0f41a3"),
-                              width=500,
-                              height=450
+                               margin = dict(t=50, b=0, l=0, r=0)
                               )
 
     return fig_pie, fig_scatter
@@ -430,5 +429,5 @@ def meanwhile():
                                   ),
                       )
     fig_volume.update_xaxes(fixedrange=True)
-    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', width=700, height=450)
+    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=0, r=0))
     return fig_volume

@@ -21,7 +21,7 @@ def build_header():
             html.P("Top coins information", 'app-header-subtitle'),
         ], className='app-header-main'),
         html.Img(
-            src='assets/crunchips.png',
+            src='assets/logo1.png',
             className='logo'
         ),
         html.Audio(id='easter-egg', controls=True, autoPlay=True, hidden=True)
@@ -91,6 +91,9 @@ def generate_symbol_dropdown():
                         options=options,
                         multi=True,
                         style={'color': '#212121',
+                               # 'display':'flex'
+                               # 'border': '2px solid #082255',
+
                                })
 
 
@@ -121,16 +124,16 @@ def build_tab_1():
                                         generate_symbol_dropdown(),
                                     ], className='dropdowns-wrapper'),
                                     html.Div([
-                                        dcc.Graph(id="pie-chart")],
+                                        dcc.Graph(id="pie-chart", className='dominancePie', responsive='auto')],
                                         className='gauge-wrapper'),
 
                                 ], className='leftcolumn-wrapper'),
                                 html.Div([
                                     html.Div([
-                                        dcc.Graph(id="scatter-chart")],
+                                        dcc.Graph(id="scatter-chart", className='marketScatter')],
                                         className='scatter-wrapper'),
                                     html.Div([
-                                        dcc.Graph(id='dominance-line')
+                                        dcc.Graph(id='dominance-line', className='dominanceGraph')
                                     ], className='dominance-wrapper')
 
                                 ], className='rightcolumn-wrapper'),
@@ -222,6 +225,7 @@ def build_tab_3():
 
 
 app = dash.Dash(__name__)
+
 app.title = 'Stock app'
 server = app.server
 
