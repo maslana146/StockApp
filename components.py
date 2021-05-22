@@ -213,11 +213,17 @@ def gen_coin_plots(coin):
             gridcolor="#0f41a3",
             color='#e5e9f0'
         ),
+        title={
+            'y': 1,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'},
+        title_font_size=30,
         showlegend=True,
         plot_bgcolor='#082255',
         xaxis_rangeslider_visible=False
     )
-    price_fig.update_layout(paper_bgcolor='#082255', font_color='#FFFFFF', width=1000)
+    price_fig.update_layout(paper_bgcolor='#082255', font_color='#FFFFFF', margin=dict(t=0, b=0, l=0, r=0))
 
 
     df_social_coin = data.get_social_coin_data(coin)
@@ -261,7 +267,8 @@ def gen_coin_plots(coin):
         showlegend=True,
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
-        font_color='#e5e9f0'
+        font_color='#e5e9f0',
+        margin = dict(t=0, b=0, l=0, r=0)
     )
 
     social_fig.update_layout(legend=dict(
@@ -282,8 +289,7 @@ def gen_coin_plots(coin):
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
         font_color='#e5e9f0',
-        width=250,
-        height=250,
+        margin = dict(t=0, b=0, l=0, r=0)
 
     )
 
@@ -354,7 +360,7 @@ def gen_coin_plots(coin):
         )
     )
 
-    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', width=1000)
+    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=0, r=0))
 
     return price_fig, social_fig, indicator_fig, fig_volume
 

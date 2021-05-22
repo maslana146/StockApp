@@ -285,18 +285,11 @@ grid-area: 4/1/10/6;
   width: 30%;
 }
 .rightcolumn2-wrapper{
-  width: 70%;
+  width: 69%;
   display: inline-block;
+  margin-left: 10px;
 }
 
-.plotline3-wrapper{
-  margin-left: 10px;
-  display: inline-block !important;
-  padding: 20px; 
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background-color: #082255;
-  border-radius: 0.55rem;
-}
 .topleft-wrapper{
   height: 250px;
 }
@@ -319,22 +312,36 @@ grid-area: 4/1/10/6;
 
 .indicator{
   float: right;
-  height: 260px;
-  width: 50%px;
+  /* height: 260px; */
+  width: 55%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
+  width: 55% !important;
+  height: 100% !important;
 }
-.plotline-wrapper{
-  margin-left: 10px;
-  margin-top: 30px;
+
+
+ .plotline-wrapper{ /* graph-social */
+ 
   display: 'inline-block';
   padding: 20px; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
+  width: 100% !important;
+  height: 100% !important;
 }
-
+.plotline3-wrapper{ /* graph */
+  margin-left: 10px;
+  display: inline-block !important;
+  padding: 20px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #082255;
+  border-radius: 0.55rem;
+  width: 100% !important;
+  height: 50% !important;
+}
 .volumeplot-wrapper{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
@@ -342,7 +349,26 @@ grid-area: 4/1/10/6;
   margin-left: 10px;
   display: inline-block !important;
   padding: 20px; 
+  width: 100% !important;
+  height: 100% !important;
 }
+#graph-social.dash-graph.socialGraph{
+  width: auto !important;
+  height: 45% !important;
+}
+#graph.dash-graph.graphGraph{
+  width: auto !important;
+  height: 33vh !important;
+}
+#volumeplot.dash-graph.volumeGraph{
+  width: auto !important;
+  height: 33vh !important;
+}
+#indicator.dash-graph.indicatorGraph{
+  width: 250px !important;
+  height: 250px !important;
+}
+
 
 /* 3 tab*/
 .third-div{
