@@ -35,26 +35,26 @@ def build_tabs():
         children=[
             dcc.Tabs(
                 id='control-tabs',
-                value='tab1',
+                value='tab2',
                 className="custom-tabs",
                 children=[
                     dcc.Tab(
                         id='Main-tab',
-                        label='Main Tab',
+                        label='Market Analysis',
                         value="tab1",
                         className="custom-tabs",
                         selected_className="custom-tab--selected",
                     ),
                     dcc.Tab(
                         id='Sub-tab',
-                        label='Sub Tab',
+                        label='Coin Analysis',
                         value="tab2",
                         className="custom-tabs",
                         selected_className="custom-tab--selected",
                     ),
                     dcc.Tab(
                         id='Rest-tab',
-                        label='Rest Tab',
+                        label='Add-ons',
                         value="tab3",
                         className="custom-tabs",
                         selected_className="custom-tab--selected",
@@ -155,13 +155,13 @@ def build_tab_2():
                                         generate_coin_dropdown()
                                     ], className='dropdowns2-wrapper'),
                                     html.Div([
-                                        dcc.Graph(id="indicator")
+                                        dcc.Graph(id="indicator", className='indicatorGraph')
                                     ], className='indicator')
 
                                 ], className='topleft-wrapper'),
                                 html.Div([
                                     html.Div([
-                                        dcc.Graph(id='graph-social')
+                                        dcc.Graph(id='graph-social', className='socialGraph')
                                     ], className='plotline-wrapper'),
 
                                 ], className='bottomleft-wrapper')
@@ -169,10 +169,10 @@ def build_tab_2():
 
                             html.Div([
                                 html.Div([
-                                    dcc.Graph(id='graph')
+                                    dcc.Graph(id='graph', className='graphGraph')
                                 ], className='plotline3-wrapper'),
                                 html.Div([
-                                    dcc.Graph(id='volumeplot')
+                                    dcc.Graph(id='volumeplot', className='volumeGraph')
                                 ], className='volumeplot-wrapper')
                             ], className='rightcolumn2-wrapper')
 

@@ -38,7 +38,7 @@ def get_global_information(change=6, data_points=182):
 
 
 def get_n_top_coins(n=50):
-    url = 'https://api.lunarcrush.com/v2?data=market&key={}&limit={}&sort=acr&type=fast'.format(KEY_API, n)
+    url = 'https://api.lunarcrush.com/v2?data=market&key={}&sort=acr&type=fast'.format(KEY_API)
     response = requests.get(url).json()
     df = pd.json_normalize(response['data'])
     df.rename(columns={

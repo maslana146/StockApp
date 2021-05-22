@@ -53,7 +53,6 @@ def get_market_table(n=50):
             },
         ],
         style_data_conditional=[
-            #         data_bars(market_data, 'Volume')[0],
             {'if': {'filter_query': '{24 Hours} > 0',
                     'column_id': '24 Hours'}, 'color': 'green',
              'fontWeight': 'bold'},
@@ -74,22 +73,24 @@ def get_market_table(n=50):
         ],
         style_cell_conditional=[{'if': {'column_id': str('Name')},
                                  'textAlign': 'left'},
-                                #                             {
-                                #         'if': {'column_id': 'Volume'},
-                                #         'width': '200px',
-                                #         'color': 'blue',
-                                #         'minWidth': '200px',
-                                #         'maxWidth': '200px',
-                                #         'overflow': 'hidden',
-                                #         'textOverflow': 'ellipsis',},
-                                # nie mam pojecia czemu to nie dziala ale trzeba to zmienic!!!
-                                #                                 {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'))},
-                                #                                  'fontWeight': 'bold',
-                                #                                  'textAlign': 'center'}
+                                {
+                                    'if': {'column_id': 'Volume'},
+                                    'width': '200px',
+                                    # 'color': 'blue',
+                                    'minWidth': '200px',
+                                    'maxWidth': '200px',
+                                    'overflow': 'hidden',
+                                    'textOverflow': 'ellipsis', },
+                                {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'),str('Name'))},
+                                 'fontWeight': 'bold',
+                                 'textAlign': 'center'},
+                                {'if': {'column_id': (str('Social Score'))},
+                                 'textAlign': 'center'},
                                 ],
         style_header={'backgroundColor': '#13326c',
                       'fontWeight': 'bold',
                       'fontSize': 17,
+                      'textAlign': 'center'
                       },
         style_cell={'fontSize': 15,
                     'font-family': 'Lucida Console',
@@ -130,8 +131,8 @@ def gen_social_dominance_plot(types, selected_coins):
                              size_max=100,
                              color_discrete_sequence=px.colors.sequential.Plasma_r)
     fig_scatter.update_layout(title=types,
-                              xaxis_title="Price ($)",
-                              yaxis_title="Volume($)",
+                              # xaxis_title="Price ($)",
+                              # yaxis_title="Volume($)",
                               plot_bgcolor='#082255',
                               )
 
@@ -139,8 +140,10 @@ def gen_social_dominance_plot(types, selected_coins):
                               font_color='#FFFFFF',
                               xaxis=dict(showgrid=False),
                               yaxis=dict(gridcolor="#0f41a3"),
-                               margin = dict(t=50, b=0, l=0, r=0)
+                              margin=dict(t=50, b=0, l=0, r=0)
                               )
+    fig_scatter.update_yaxes(title_text="<b>Volume($)</b>")
+    fig_scatter.update_xaxes(title_text="<b>Price ($)</b>")
 
     return fig_pie, fig_scatter
 
@@ -219,7 +222,6 @@ def gen_coin_plots(coin):
     )
     price_fig.update_layout(paper_bgcolor='#082255', font_color='#FFFFFF', width=1000)
 
-
     df_social_coin = data.get_social_coin_data(coin)
     colors = px.colors.sequential.Plasma_r
     social_fig = go.Figure()
@@ -288,12 +290,12 @@ def gen_coin_plots(coin):
     )
 
     fig_volume = px.bar(df_coin_data[20:],
-                 x='time',
-                 y='volume',
-                 color='volume',
-                 color_continuous_scale=px.colors.sequential.Plasma,
-                 height=400,
-                 )
+                        x='time',
+                        y='volume',
+                        color='volume',
+                        color_continuous_scale=px.colors.sequential.Plasma,
+                        height=400,
+                        )
 
     fig2 = go.Figure(go.Scatter(x=df_coin_data['time'],
                                 y=df_coin_data['MA-Volume'],
@@ -363,37 +365,37 @@ def meanwhile():
     df = data.get_global_information(change=6, data_points=182)
     fig_volume = make_subplots(specs=[[{"secondary_y": True}]])
     fig_volume.add_trace(go.Scatter(x=df['time'],
-                             y=df['btc_dominance'],
-                             name='BTC dominance',
-                             line=dict(color='#d8576b',
-                                       width=3,
-                                       )
+                                    y=df['btc_dominance'],
+                                    name='BTC dominance',
+                                    line=dict(color='#d8576b',
+                                              width=3,
+                                              )
 
-                             ), secondary_y=False)
+                                    ), secondary_y=False)
     fig_volume.add_trace(go.Scatter(x=df['time'],
-                             y=df['altcoin_dominance'],
-                             name='Altcoin dominance',
-                             line=dict(color='#bd3786',
-                                       width=3,
-                                       )
-                             ), secondary_y=False)
+                                    y=df['altcoin_dominance'],
+                                    name='Altcoin dominance',
+                                    line=dict(color='#bd3786',
+                                              width=3,
+                                              )
+                                    ), secondary_y=False)
     fig_volume.add_trace(go.Scatter(x=df['time'],
-                             y=df['alt_coin_market_cap'],
-                             name='Altcoin market cap',
-                             line=dict(color='#fdca26',
-                                       width=3, )
-                             ), secondary_y=True)
+                                    y=df['alt_coin_market_cap'],
+                                    name='Altcoin market cap',
+                                    line=dict(color='#fdca26',
+                                              width=3, )
+                                    ), secondary_y=True)
     fig_volume.add_trace(go.Scatter(x=df['time'],
-                             y=df['btc_market_cap'],
-                             name='BTC market cap',
-                             line=dict(color='#f0f921',
-                                       width=3, )
-                             ), secondary_y=True)
+                                    y=df['btc_market_cap'],
+                                    name='BTC market cap',
+                                    line=dict(color='#f0f921',
+                                              width=3, )
+                                    ), secondary_y=True)
 
     fig_volume.update_yaxes(title_text="<b>Dominance</b>", secondary_y=False, showline=False,
-                     showgrid=False, )
+                            showgrid=False, )
     fig_volume.update_yaxes(title_text="<b>Market cap</b>", secondary_y=True, showline=False,
-                     showgrid=False, )
+                            showgrid=False, )
     fig_volume.update_layout(
         xaxis=dict(
             showline=False,
@@ -421,13 +423,13 @@ def meanwhile():
         plot_bgcolor='#082255'
     )
     fig_volume.update_layout(legend=dict(orientation="h",
-                                  yanchor="bottom",
-                                  y=1,
-                                  xanchor="right",
-                                  x=1,
-                                  font=dict(size=10, )
-                                  ),
-                      )
+                                         yanchor="bottom",
+                                         y=1,
+                                         xanchor="right",
+                                         x=1,
+                                         font=dict(size=12, )
+                                         ),
+                             )
     fig_volume.update_xaxes(fixedrange=True)
-    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=0, r=0))
+    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=60, r=60))
     return fig_volume
