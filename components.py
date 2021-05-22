@@ -53,7 +53,6 @@ def get_market_table(n=50):
             },
         ],
         style_data_conditional=[
-            #         data_bars(market_data, 'Volume')[0],
             {'if': {'filter_query': '{24 Hours} > 0',
                     'column_id': '24 Hours'}, 'color': 'green',
              'fontWeight': 'bold'},
@@ -74,22 +73,24 @@ def get_market_table(n=50):
         ],
         style_cell_conditional=[{'if': {'column_id': str('Name')},
                                  'textAlign': 'left'},
-                                #                             {
-                                #         'if': {'column_id': 'Volume'},
-                                #         'width': '200px',
-                                #         'color': 'blue',
-                                #         'minWidth': '200px',
-                                #         'maxWidth': '200px',
-                                #         'overflow': 'hidden',
-                                #         'textOverflow': 'ellipsis',},
-                                # nie mam pojecia czemu to nie dziala ale trzeba to zmienic!!!
-                                #                                 {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'))},
-                                #                                  'fontWeight': 'bold',
-                                #                                  'textAlign': 'center'}
+                                {
+                                    'if': {'column_id': 'Volume'},
+                                    'width': '200px',
+                                    # 'color': 'blue',
+                                    'minWidth': '200px',
+                                    'maxWidth': '200px',
+                                    'overflow': 'hidden',
+                                    'textOverflow': 'ellipsis', },
+                                {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'),str('Name'))},
+                                 'fontWeight': 'bold',
+                                 'textAlign': 'center'},
+                                {'if': {'column_id': (str('Social Score'))},
+                                 'textAlign': 'center'},
                                 ],
         style_header={'backgroundColor': '#13326c',
                       'fontWeight': 'bold',
                       'fontSize': 17,
+                      'textAlign': 'center'
                       },
         style_cell={'fontSize': 15,
                     'font-family': 'Lucida Console',
@@ -130,8 +131,8 @@ def gen_social_dominance_plot(types, selected_coins):
                              size_max=100,
                              color_discrete_sequence=px.colors.sequential.Plasma_r)
     fig_scatter.update_layout(title=types,
-                              xaxis_title="Price ($)",
-                              yaxis_title="Volume($)",
+                              # xaxis_title="Price ($)",
+                              # yaxis_title="Volume($)",
                               plot_bgcolor='#082255',
                               )
 
@@ -139,8 +140,10 @@ def gen_social_dominance_plot(types, selected_coins):
                               font_color='#FFFFFF',
                               xaxis=dict(showgrid=False),
                               yaxis=dict(gridcolor="#0f41a3"),
-                               margin = dict(t=50, b=0, l=0, r=0)
+                              margin=dict(t=50, b=0, l=0, r=0)
                               )
+    fig_scatter.update_yaxes(title_text="<b>Volume($)</b>")
+    fig_scatter.update_xaxes(title_text="<b>Price ($)</b>")
 
     return fig_pie, fig_scatter
 
@@ -397,9 +400,9 @@ def meanwhile():
                              ), secondary_y=True)
 
     fig_volume.update_yaxes(title_text="<b>Dominance</b>", secondary_y=False, showline=False,
-                     showgrid=False, )
+                            showgrid=False, )
     fig_volume.update_yaxes(title_text="<b>Market cap</b>", secondary_y=True, showline=False,
-                     showgrid=False, )
+                            showgrid=False, )
     fig_volume.update_layout(
         xaxis=dict(
             showline=False,
