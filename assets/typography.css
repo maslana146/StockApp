@@ -330,7 +330,6 @@ grid-area: 4/1/10/6;
 
 
  .plotline-wrapper{ /* graph-social */
-
   display: 'inline-block';
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -342,7 +341,7 @@ grid-area: 4/1/10/6;
 .plotline3-wrapper{ /* graph */
   margin-left: 10px;
   display: inline-block !important;
-  padding: 20px;
+  padding: 20px; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: #082255;
   border-radius: 0.55rem;
@@ -355,7 +354,7 @@ grid-area: 4/1/10/6;
   border-radius: 0.55rem;
   margin-left: 10px;
   display: inline-block !important;
-  padding: 20px;
+  padding: 20px; 
   width: 100% !important;
   height: 100% !important;
 }
