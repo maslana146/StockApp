@@ -36,7 +36,7 @@ def build_tabs():
         children=[
             dcc.Tabs(
                 id='control-tabs',
-                value='tab2',
+                value='tab1',
                 className="custom-tabs",
                 children=[
                     dcc.Tab(
@@ -191,10 +191,14 @@ def build_card(links, image_path, titles, desc, source, who, symbol):
         dark=True
     )
 
+feeds,lists = None, None
 
-feeds = data.get_feeds_information()
-lists = [i for i in range(20)]
-random.shuffle(lists)
+
+def genfeeds():
+    global feeds, lists
+    feeds = data.get_feeds_information()
+    lists = [i for i in range(20)]
+    random.shuffle(lists)
 
 
 def create_card(ids):
@@ -313,6 +317,7 @@ def prepare_top(tab_switch):
     elif tab_switch == 'tab2':
         return build_tab_2()
     else:
+        genfeeds()
         return build_tab_3()
 
 
