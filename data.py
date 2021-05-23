@@ -83,3 +83,12 @@ def get_feeds_information():
     df = pd.json_normalize(response['data'])
     df['time'] = pd.to_datetime(df['time'], unit='s')
     return df
+
+
+def get_tweets_data():
+    url = "https://api.lunarcrush.com/v2?data=feeds&key=39o5gbbtx7n1gxkvnhf6na&&limit=20&sources=twitter"
+    response = requests.get(url).json()
+    data = response['data']
+    df = pd.json_normalize(data)
+    df['time'] = pd.to_datetime(df['time'], unit='s')
+    return df
