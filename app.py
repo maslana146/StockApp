@@ -257,13 +257,12 @@ def build_tab_3():
                         html.Details([
                             html.Summary("About application:"),
                             html.Div([
-                                html.Blockquote([
-                                    html.P(
-                                        "Application, which is created by young, talentful developer team, by using:"),
-                                    html.A("Dash Framework", href='https://dash.plotly.com/'),
-                                    html.P("Data is provided by:"),
-                                    html.A("LunarCrush Api v2", href='https://lunarcrush.com/'),
-                                ])
+
+                                html.P([
+                                    'Project was done in Dash Python, and data is collected from ', html.A('this Api.', href='https://lunarcrush.com/'),'The reason for choosing this topic is mostly the growing popularity of Cryptocurrencies,' ,
+                                    'and our fascination with the history of the different Cryptocurrencies. Colory of our dashboard was ‘borrowed’ from ', html.A('this dashboard.', href = 'https://dash-gallery.plotly.host/dash-wind-streaming/'),
+                                    'For sure the most hard part of the project was styling everything with CSS, to make sure it looks somehow, but thanks to that we can learn css',
+                                    ' and html(we used it previously, but never in such a scale, so we kill two birds with one stone).']),
 
                             ])
                         ]),
@@ -279,9 +278,9 @@ def build_tab_3():
                             ])
                         ]),
                         html.Details([
-                            html.Summary("???"),
+                            html.Summary("Who is good Dog ???"),
                             html.Div([
-                                html.P("some text")
+                                html.P(["Found out in coin analysis", '🐕']),
                             ])
                         ])
                     ], className='AboutUs')

@@ -111,7 +111,7 @@ def gen_social_dominance_plot(types, selected_coins):
                      values=df[types],
                      names=df['Symbol'],
                      hole=+.5,
-                     title=types,
+                     # title=types,
                      color_discrete_sequence=px.colors.sequential.Plasma_r,
 
                      )
@@ -295,6 +295,7 @@ def gen_coin_plots(coin):
     indicator_fig = go.Figure(go.Indicator(
         mode="number+delta",
         value=details['price'],
+        number={'prefix': "$"},
         title="{} 24 hours".format(details['name']),
         delta={'reference': ((1 + (-1 * (details['percent_change_24h'] / 100))) * details['price']), 'relative': True},
 
