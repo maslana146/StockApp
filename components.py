@@ -76,12 +76,11 @@ def get_market_table(n=50):
                                 {
                                     'if': {'column_id': 'Volume'},
                                     'width': '200px',
-                                    # 'color': 'blue',
                                     'minWidth': '200px',
                                     'maxWidth': '200px',
                                     'overflow': 'hidden',
                                     'textOverflow': 'ellipsis', },
-                                {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'),str('Name'))},
+                                {'if': {'column_id': (str('Symbol'), str('ALTRank'), str('Galaxy Score'), str('Name'))},
                                  'fontWeight': 'bold',
                                  'textAlign': 'center'},
                                 {'if': {'column_id': (str('Social Score'))},
@@ -89,19 +88,18 @@ def get_market_table(n=50):
                                 ],
         style_header={'backgroundColor': '#13326c',
                       'fontWeight': 'bold',
-                      'fontSize': 17,
+                      'fontSize': 19,
                       'textAlign': 'center'
                       },
-        style_cell={'fontSize': 15,
-                    'font-family': 'Lucida Console',
+        style_cell={'fontSize': 16,
+                    'font-family': 'Courier New',
                     'backgroundColor': "#082255",
                     'color': '#e5e9f0',
                     'border': '1px solid #082255'},
         sort_action='native',
         editable=False,
         style_as_list_view=True,
-        page_size=5,
-        #     fill_width=False
+        page_size=7,
     )
     return market_table
 
@@ -115,10 +113,14 @@ def gen_social_dominance_plot(types, selected_coins):
                      hole=+.5,
                      title=types,
                      color_discrete_sequence=px.colors.sequential.Plasma_r,
+
                      )
 
     fig_pie.update_layout(plot_bgcolor='#082255', paper_bgcolor='#082255', font_color='#FFFFFF',
-                          margin=dict(t=0,b=0,l=0,r=0))
+                          margin=dict(t=0, b=0, l=20, r=0),
+                          font_family='Courier New',
+                          font_size=18
+                          )
 
     fig_scatter = px.scatter(df,
                              x=df['Price'],
@@ -129,21 +131,21 @@ def gen_social_dominance_plot(types, selected_coins):
                              log_y=True,
                              log_x=True,
                              size_max=100,
-                             color_discrete_sequence=px.colors.sequential.Plasma_r)
-    fig_scatter.update_layout(title=types,
-                              # xaxis_title="Price ($)",
-                              # yaxis_title="Volume($)",
-                              plot_bgcolor='#082255',
-                              )
+                             color_discrete_sequence=px.colors.sequential.Plasma_r, )
 
-    fig_scatter.update_layout(paper_bgcolor='#082255',
-                              font_color='#FFFFFF',
-                              xaxis=dict(showgrid=False),
-                              yaxis=dict(gridcolor="#0f41a3"),
-                              margin=dict(t=50, b=0, l=0, r=0)
-                              )
-    fig_scatter.update_yaxes(title_text="<b>Volume($)</b>")
-    fig_scatter.update_xaxes(title_text="<b>Price ($)</b>")
+    fig_scatter.update_layout(
+        plot_bgcolor='#082255',
+        font_family='Courier New',
+        paper_bgcolor='#082255',
+        font_color='#FFFFFF',
+        xaxis=dict(showgrid=False),
+        yaxis=dict(gridcolor="#0f41a3"),
+        margin=dict(t=50, b=0, l=0, r=0),
+        title_text="<b>{}</b>".format(types),
+        title_font={"size": 18}
+    )
+    fig_scatter.update_yaxes(title_text="<b>Volume($)</b>", title_font={"size": 18})
+    fig_scatter.update_xaxes(title_text="<b>Price ($)</b>", title_font={"size": 18})
 
     return fig_pie, fig_scatter
 
@@ -156,12 +158,6 @@ def gen_coin_plots(coin):
                                                low=df_coin_data['low'],
                                                close=df_coin_data['close'],
                                                name='{} price'.format(details['symbol']))])
-
-    price_fig.update_layout(title=details['name'],
-                            yaxis_tickformat='$',
-                            xaxis_title='Date',
-                            yaxis_title='Price',
-                            )
 
     price_fig.update_xaxes(title_text='Date',
                            rangeslider_visible=True,
@@ -194,6 +190,12 @@ def gen_coin_plots(coin):
                                    name='High-Moving Average',
                                    line={'color': '#006eff',
                                          'width': 1}))
+    price_fig.update_layout(title_text="{}".format(details['name'].upper()),
+                            yaxis_tickformat='$',
+                            xaxis_title='Date',
+                            yaxis_title='Price',
+                            font_family='Courier New',
+                            )
     price_fig.update_layout(
         xaxis=dict(
             showline=False,
@@ -203,7 +205,6 @@ def gen_coin_plots(coin):
             linewidth=2,
             ticks='outside',
             tickfont=dict(
-                family='Arial',
                 size=12,
                 color='#e5e9f0',
             ),
@@ -221,12 +222,22 @@ def gen_coin_plots(coin):
             'x': 0.5,
             'xanchor': 'center',
             'yanchor': 'top'},
-        title_font_size=30,
+        title_font_size=35,
         showlegend=True,
         plot_bgcolor='#082255',
-        xaxis_rangeslider_visible=False
+        xaxis_rangeslider_visible=False,
+        paper_bgcolor='#082255', font_color='#FFFFFF', margin=dict(t=0, b=0, l=0, r=30),
+        legend=dict(orientation="h",
+                    yanchor="bottom",
+                    y=1,
+                    xanchor="right",
+                    x=1,
+                    font=dict(size=12, )
+                    ),
+
     )
-    price_fig.update_layout(paper_bgcolor='#082255', font_color='#FFFFFF', margin=dict(t=0, b=0, l=0, r=0))
+    price_fig.update_yaxes(title_text="<b>Price</b>", title_font={"size": 18})
+    price_fig.update_xaxes(title_text="<b>Date</b>", title_font={"size": 18})
 
     df_social_coin = data.get_social_coin_data(coin)
     colors = px.colors.sequential.Plasma_r
@@ -249,7 +260,7 @@ def gen_coin_plots(coin):
             linewidth=2,
             ticks='outside',
             tickfont=dict(
-                family='Lucida Console',
+                family='Courier New',
                 size=12,
                 color='#e5e9f0',
             ),
@@ -263,22 +274,23 @@ def gen_coin_plots(coin):
             gridcolor="#0f41a3",
         ),
         autosize=False,
-        title="24 hours {} social".format(coin),
-        xaxis_title="Date",
-        yaxis_title="Number",
+        title="24 hours {} social".format(coin).upper(),
         showlegend=True,
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
         font_color='#e5e9f0',
-        margin = dict(t=0, b=0, l=0, r=0)
-    )
-
-    social_fig.update_layout(legend=dict(
-        yanchor="top",
-        y=1.5,
-        xanchor="right",
-        x=1.1
-    ))
+        margin=dict(t=0, b=0, l=0, r=0),
+        font_family='Courier New',
+        title_font_size=25,
+        legend=dict(
+                    yanchor="bottom",
+                    y=1,
+                    xanchor="right",
+                    x=1,
+                    font=dict(size=12, )
+                    ),)
+    social_fig.update_yaxes(title_text="<b>Number</b>", title_font={"size": 18})
+    social_fig.update_xaxes(title_text="<b>Date</b>", title_font={"size": 18})
 
     indicator_fig = go.Figure(go.Indicator(
         mode="number+delta",
@@ -291,11 +303,12 @@ def gen_coin_plots(coin):
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
         font_color='#e5e9f0',
-        margin = dict(t=0, b=0, l=0, r=0)
+        margin=dict(t=0, b=0, l=0, r=0),
+        font_family='Courier New',
 
     )
 
-    fig_volume = px.bar(df_coin_data[20:],
+    fig_volume = px.bar(df_coin_data,
                         x='time',
                         y='volume',
                         color='volume',
@@ -314,7 +327,6 @@ def gen_coin_plots(coin):
                                 name='MV-Volume',
                                 line_shape='spline',
                                 ))
-    fig_volume.update_yaxes(range=[0, 200000000000])
     fig_volume.add_trace(fig2.data[0])
     fig_volume.update_layout(
         xaxis=dict(
@@ -324,9 +336,9 @@ def gen_coin_plots(coin):
             linecolor='rgb(204, 204, 204)',
             linewidth=2,
             ticks='outside',
-            title="Time",
+            title="Date",
             tickfont=dict(
-                family='Arial',
+                family='Courier New',
                 size=12,
                 color='#e5e9f0',
             ),
@@ -351,10 +363,11 @@ def gen_coin_plots(coin):
                     ),
         height=300,
         coloraxis_showscale=False,
+        font_family='Courier New',
 
     )
-    fig_volume.update_xaxes(fixedrange=True)
-    fig_volume.update_yaxes(fixedrange=True)
+    fig_volume.update_xaxes(fixedrange=True,title_text="<b>Date</b>", title_font={"size":18})
+    fig_volume.update_yaxes(fixedrange=True,title_text="<b>Volume</b>", title_font={"size":18})
     fig_volume.update_traces(
         marker=dict(
             line=dict(
@@ -362,7 +375,7 @@ def gen_coin_plots(coin):
         )
     )
 
-    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=0, r=0))
+    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=0, r=30))
 
     return price_fig, social_fig, indicator_fig, fig_volume
 
@@ -399,9 +412,10 @@ def meanwhile():
                                     ), secondary_y=True)
 
     fig_volume.update_yaxes(title_text="<b>Dominance</b>", secondary_y=False, showline=False,
-                            showgrid=False, )
+                            showgrid=False, title_font={"size": 18})
     fig_volume.update_yaxes(title_text="<b>Market cap</b>", secondary_y=True, showline=False,
-                            showgrid=False, )
+                            showgrid=False, title_font={"size": 18})
+    fig_volume.update_xaxes(title_text="<b>Date</b>", title_font={"size": 18})
     fig_volume.update_layout(
         xaxis=dict(
             showline=False,
@@ -410,9 +424,9 @@ def meanwhile():
             linecolor='rgb(204, 204, 204)',
             linewidth=2,
             ticks='outside',
-            title="Time",
+            # title="Time",
             tickfont=dict(
-                family='Arial',
+                family='Courier New',
                 size=12,
                 color='#e5e9f0',
             ),
@@ -426,16 +440,17 @@ def meanwhile():
             color='#e5e9f0'
         ),
         showlegend=True,
-        plot_bgcolor='#082255'
+        plot_bgcolor='#082255',
+        font_family='Courier New',
     )
     fig_volume.update_layout(legend=dict(orientation="h",
                                          yanchor="bottom",
                                          y=1,
                                          xanchor="right",
                                          x=1,
-                                         font=dict(size=12, )
+                                         font=dict(size=15, )
                                          ),
                              )
     fig_volume.update_xaxes(fixedrange=True)
-    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=60, r=60))
+    fig_volume.update_layout(paper_bgcolor='#082255', font_color='#e5e9f0', margin=dict(t=0, b=0, l=60, r=30))
     return fig_volume

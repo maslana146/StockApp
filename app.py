@@ -3,7 +3,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_trich_components as dtc
-import dash_bootstrap_components as dbc
+# import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import components
 import data
@@ -18,7 +18,7 @@ for coin in COINS:
 def build_header():
     return html.Div([
         html.Div([
-            html.H4("Stock App", className='app-header-title'),
+            html.H4("Stock App".upper(), className='app-header-title'),
             html.P("Top coins information", 'app-header-subtitle'),
         ], className='app-header-main'),
         html.Img(
@@ -92,6 +92,7 @@ def generate_symbol_dropdown():
                         options=options,
                         multi=True,
                         style={'color': '#212121',
+                               "font-family":'Courier New'
                                # 'display':'flex'
                                # 'border': '2px solid #082255',
 
@@ -191,7 +192,8 @@ def build_card(links, image_path, titles, desc, source, who, symbol):
         dark=True
     )
 
-feeds,lists = None, None
+
+feeds, lists = None, None
 
 
 def genfeeds():
@@ -209,15 +211,15 @@ def create_card(ids):
 
 def build_tweet(img_src, text, name, second_name, link, time):
     return html.Blockquote([
-                html.P(text,
-                       lang="en",
-                       dir="ltr"),
-                "~ " + name + "(@" + second_name + ")  ",
-                html.Img(src=img_src),
-                html.A('  ' + time.strftime("%m %B %Y"),
-                       href=link,
-                       )
-            ], className="twitter-tweet")
+        html.P(text,
+               lang="en",
+               dir="ltr"),
+        "~ " + name + "(@" + second_name + ")  ",
+        html.Img(src=img_src),
+        html.A('  ' + time.strftime("%m %B %Y"),
+               href=link,
+               )
+    ], className="twitter-tweet")
 
 
 def create_tweet(ids):
@@ -251,32 +253,29 @@ def build_tab_3():
                 ], className='left-container'),
                 html.Div([  # right-container
                     html.Div([
-                        html.Details([
-                            html.Summary("Random Tweet"),
-                            html.Div([
-                                create_tweet(0),
-                            ])
-                        ], open=True),
-
 
                         html.Details([
                             html.Summary("About application:"),
                             html.Div([
                                 html.Blockquote([
-                                    html.P("Application, which is created by young, talentful developer team, by using:"),
+                                    html.P(
+                                        "Application, which is created by young, talentful developer team, by using:"),
                                     html.A("Dash Framework", href='https://dash.plotly.com/'),
                                     html.P("Data is provided by:"),
                                     html.A("LunarCrush Api v2", href='https://lunarcrush.com/'),
                                 ])
-
 
                             ])
                         ]),
                         html.Details([
                             html.Summary("Young, talentful developers:"),
                             html.Div([
-                                html.P("Bartosz Maślanka"),
-                                html.P(["Kajetan Kubik ", html.A("Github", href='https://github.com/Imrauviel'), " ",html.A("Spotify", href='https://open.spotify.com/user/21k7zbtax556bcwruwsoizeoi?si=f98795e9ef124229')]),
+                                html.P(["Bartosz Maślanka ", html.A("Github", href='https://github.com/maslana146'), " ",
+                                        html.A("Linkedin",
+                                               href='https://www.linkedin.com/in/bartosz-ma%C5%9Blanka-149ba21b0')]),
+                                html.P(["Kajetan Kubik ", html.A("Github", href='https://github.com/Imrauviel'), " ",
+                                        html.A("Spotify",
+                                               href='https://open.spotify.com/user/21k7zbtax556bcwruwsoizeoi?si=f98795e9ef124229')]),
                             ])
                         ]),
                         html.Details([
@@ -286,7 +285,7 @@ def build_tab_3():
                             ])
                         ])
                     ], className='AboutUs')
-                ],  className='right-container')
+                ], className='right-container')
 
             ], className='third-div')], type='cube')
     ]
@@ -334,7 +333,7 @@ def generate_chart(types, selected_coins):
     Output('easter-egg', 'src'),
     Input('coin-dropdown', 'value'))
 def easteregg(coin):
-    if coin =='DOGE':
+    if coin == 'DOGE':
         return 'assets/dog.wav'
     else:
         return ''
