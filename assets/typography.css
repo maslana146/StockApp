@@ -10,7 +10,7 @@ body{
 
 }
 @font-face {
-  font-family: "Farro";
+  font-family: 'Courier New', monospace;
   src: url("fonts/Farro-Light.ttf");
 }
 
@@ -19,7 +19,7 @@ display: none !important;
 }
 
 p { margin-top: 10px;
-    font-family: 'Lucida Console';
+    font-family: 'Courier New', monospace;
     font-weight: lighter;
 
 }
@@ -142,11 +142,7 @@ p { margin-top: 10px;
   background-color: #13326c !important;
   color: #e5e9f0 !important
 }
-.Select--multi .Select-value{
-  background-color: #13326c !important;
-  color: #e5e9f0;
-  /* border-color:#13326c !important; */
-}
+
 .Select.has-value.Select--single > .Select-control .Select-value .Select-value-label{
   background-color: #13326c !important;
   color: #e5e9f0 !important;
@@ -159,6 +155,12 @@ p { margin-top: 10px;
 }
 .Select input{
   color: #e5e9f0 !important;
+}
+.Select--multi.Select-value{
+
+  background-color: #13326c !important;
+  color: #e5e9f0 !important;
+  /* border-color:#13326c !important; */
 }
 .first-div{
   margin-top: 20px;
@@ -344,7 +346,7 @@ p { margin-top: 10px;
   border-radius:10px;
   color:#fff;
   float: left;
-  font-family:sans-serif;
+  font-family: 'Courier New', monospace;
 }
 
 .trich_card.dark .card{
@@ -360,11 +362,11 @@ p { margin-top: 10px;
 }
 
 .font-sm{
-  font-family: "Farro";
+  font-family: 'Courier New', monospace;
 }
 
 .font-xs{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Courier New', monospace;
 }
 
 .left-container{
@@ -374,11 +376,12 @@ p { margin-top: 10px;
 .right-container{
   float: right;
   width: calc(100vw - 750px) !important;
+  font-family: 'Courier New', monospace;
 }
 
 blockquote.twitter-tweet {
   display: inline-block;
-  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-family: 'Courier New', monospace;
   font-size: 12px;
   font-weight: bold;
   line-height: 12px;
@@ -428,7 +431,7 @@ summary {
   display: inline-block;
   cursor: pointer;
   padding: 10px;
-  font-family: "Space Mono", monospace;
+  font-family: 'Courier New', monospace;
   font-size: 22px;
   transition: .3s;
   border-bottom: 2px solid;
@@ -437,6 +440,7 @@ summary {
 .AboutUs{
   margin-top: 50px;
   margin-left: 50px;
+  font-family: 'Courier New', monospace;
   /* width: 1000px; */
 }
 details > div {
@@ -446,7 +450,7 @@ details > div {
   height: 100%;
   user-select: none;
   padding: 0 20px;
-  font-family: "Karla", sans-serif;
+  font-family: 'Courier New', monospace;
   line-height: 1.5;
 }
 details > div > p {
@@ -454,5 +458,5 @@ details > div > p {
 }
 
 details[open] > summary {
-   color: red;
+   color: #f0f921;
 }

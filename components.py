@@ -131,7 +131,8 @@ def gen_social_dominance_plot(types, selected_coins):
                              log_y=True,
                              log_x=True,
                              size_max=100,
-                             color_discrete_sequence=px.colors.sequential.Plasma_r, )
+                             color_discrete_sequence=px.colors.sequential.Plasma_r,
+                             )
 
     fig_scatter.update_layout(
         plot_bgcolor='#082255',
@@ -190,7 +191,7 @@ def gen_coin_plots(coin):
                                    name='High-Moving Average',
                                    line={'color': '#006eff',
                                          'width': 1}))
-    price_fig.update_layout(title_text="{}".format(details['name'].upper()),
+    price_fig.update_layout(title_text="{}".format(details['symbol'].upper()),
                             yaxis_tickformat='$',
                             xaxis_title='Date',
                             yaxis_title='Price',
@@ -243,9 +244,10 @@ def gen_coin_plots(coin):
     colors = px.colors.sequential.Plasma_r
     social_fig = go.Figure()
     labels = ['unique_url_shares', 'url_shares', 'tweets', 'tweet_spam']
+    titles = ['Unique URL shares', 'URL shares', 'Tweets', 'Tweet spam']
     for j, i in enumerate(labels):
         social_fig.add_trace(go.Scatter(x=df_social_coin['time'], y=df_social_coin[i], mode='lines',
-                                        name=labels[j],
+                                        name=titles[j],
                                         line=dict(color=colors[j], width=4),
                                         connectgaps=True,
 
@@ -274,7 +276,7 @@ def gen_coin_plots(coin):
             gridcolor="#0f41a3",
         ),
         autosize=False,
-        title="24 hours {} social".format(coin).upper(),
+        title="24H {} social".format(coin).upper(),
         showlegend=True,
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
@@ -296,7 +298,7 @@ def gen_coin_plots(coin):
         mode="number+delta",
         value=details['price'],
         number={'prefix': "$"},
-        title="{} 24 hours".format(details['name']),
+        title="{} 24H ".format(details['name']),
         delta={'reference': ((1 + (-1 * (details['percent_change_24h'] / 100))) * details['price']), 'relative': True},
 
     ))
@@ -304,7 +306,7 @@ def gen_coin_plots(coin):
         plot_bgcolor='#082255',
         paper_bgcolor='#082255',
         font_color='#e5e9f0',
-        margin=dict(t=0, b=0, l=0, r=0),
+        margin=dict(t=10, b=10, l=10, r=10),
         font_family='Courier New',
 
     )

@@ -92,7 +92,7 @@ def generate_symbol_dropdown():
                         options=options,
                         multi=True,
                         style={'color': '#212121',
-                               "font-family":'Courier New'
+                               "font-family": 'Courier New',
                                # 'display':'flex'
                                # 'border': '2px solid #082255',
 
@@ -259,28 +259,31 @@ def build_tab_3():
                             html.Div([
 
                                 html.P([
-                                    'Project was done in Dash Python, and data is collected from ', html.A('this Api.', href='https://lunarcrush.com/'),'The reason for choosing this topic is mostly the growing popularity of Cryptocurrencies,' ,
-                                    'and our fascination with the history of the different Cryptocurrencies. Colory of our dashboard was ‘borrowed’ from ', html.A('this dashboard.', href = 'https://dash-gallery.plotly.host/dash-wind-streaming/'),
-                                    'For sure the most hard part of the project was styling everything with CSS, to make sure it looks somehow, but thanks to that we can learn css',
-                                    ' and html(we used it previously, but never in such a scale, so we kill two birds with one stone).']),
+                                    'Project was done in Dash Python, and data is collected from '.upper(),
+                                    html.A('this Api.'.upper(), href='https://lunarcrush.com/'),
+                                    'The reason for choosing this topic is mostly the growing popularity of Cryptocurrencies,'.upper(),
+                                    'and our fascination with the history of the different Cryptocurrencies. For sure the most hard part of the project was styling everything with CSS, to make sure it looks somehow, but thanks to that we can learn css'.upper(),
+                                    ' and html(we used it previously, but never in such a scale, so we kill two birds with one stone). \n\n Github source code-> '.upper(),
+                                    html.A('link'.upper(), href='https://github.com/maslana146/StockApp')]),
 
                             ])
                         ]),
                         html.Details([
                             html.Summary("Young, talentful developers:"),
                             html.Div([
-                                html.P(["Bartosz Maślanka ", html.A("Github", href='https://github.com/maslana146'), " ",
-                                        html.A("Linkedin",
-                                               href='https://www.linkedin.com/in/bartosz-ma%C5%9Blanka-149ba21b0')]),
-                                html.P(["Kajetan Kubik ", html.A("Github", href='https://github.com/Imrauviel'), " ",
-                                        html.A("Spotify",
+                                html.P(
+                                    ["Bartosz Maślanka ".upper(), html.A("Github".upper(), href='https://github.com/maslana146'), " ",
+                                     html.A("Linkedin".upper(),
+                                            href='https://www.linkedin.com/in/bartosz-ma%C5%9Blanka-149ba21b0')]),
+                                html.P(["Kajetan Kubik ".upper(), html.A("Github".upper(), href='https://github.com/Imrauviel'), " ",
+                                        html.A("Spotify".upper(),
                                                href='https://open.spotify.com/user/21k7zbtax556bcwruwsoizeoi?si=f98795e9ef124229')]),
                             ])
                         ]),
                         html.Details([
                             html.Summary("Who is good Dog ???"),
                             html.Div([
-                                html.P(["Found out in coin analysis", '🐕']),
+                                html.P(["Found out in coin analysis".upper(), '🐕']),
                             ])
                         ])
                     ], className='AboutUs')
